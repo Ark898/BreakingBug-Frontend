@@ -2,10 +2,11 @@ import React from "react";
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from "@mui/material";
 import { GreenButton, RedButton } from "../utils/buttonStyles";
 
-const AlertDialogSlide = ({ dialog, showDialog, setShowDialog }) => {
+const AlertDialogSlide = ({ dialog, showDialog, setShowDialog, taskHandler }) => {
     const handleClose = () => {
         setShowDialog(false);
     };
+
     return (
         <Dialog
             open={showDialog}
@@ -27,8 +28,8 @@ const AlertDialogSlide = ({ dialog, showDialog, setShowDialog }) => {
                 </div>
                 <div>
                     <RedButton onClick={() => {
-                        handleClose()
-                        taskHandler()
+                        handleClose();
+                        taskHandler(); // Execute taskHandler when Yes is clicked
                     }}>Yes</RedButton>
                 </div>
             </DialogActions>

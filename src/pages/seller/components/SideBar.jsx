@@ -11,9 +11,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { useSelector } from 'react-redux';
 
 const SideBar = () => {
-
-    
-
+    const location = useLocation(); // Use useLocation hook to get the current location
     const { currentRole } = useSelector(state => state.user);
 
     return (
@@ -47,8 +45,7 @@ const SideBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="Orders" />
                 </ListItemButton>
-                {
-                    currentRole === "Shopcart" &&
+                {currentRole === "Shopcart" &&
                     <ListItemButton
                         component={Link} to="/Seller/shopcart"
                         sx={location.pathname.startsWith('/Seller/shopcart') ? styles.currentStyle : styles.normalStyle}
@@ -80,13 +77,10 @@ const SideBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
                 </ListItemButton>
-
             </React.Fragment>
         </>
     );
-}
-
-export default SideBar;
+};
 
 const styles = {
     normalStyle: {
@@ -97,4 +91,6 @@ const styles = {
         color: "#4d1c9c",
         backgroundColor: "#ebebeb"
     },
-}
+};
+
+export default SideBar;

@@ -30,7 +30,7 @@ const Navbar = () => {
 
     const totalQuantity = currentUser && currentUser.cartDetails && 0;
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     React.useEffect(() => {
@@ -38,7 +38,7 @@ const Navbar = () => {
             console.log(currentUser);
             dispatch(updateCustomer(currentUser, currentUser._id));
         }
-    }, [currentRole, currentUser, dispatch, ancorElNav])
+    }, [currentRole, currentUser, dispatch]);
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -50,11 +50,11 @@ const Navbar = () => {
     const [isCartOpen, setIsCartOpen] = React.useState(false);
 
     // Cart
-    const handleOpen Cart = () => {
+    const handleOpenCart = () => {
         setIsCartOpen(true);
     };
 
-    const handleOpenCart = () => {
+    const handleCloseCart = () => {
         setIsCartOpen(false);
     };
 
@@ -86,7 +86,7 @@ const Navbar = () => {
     };
 
     const homeHandler = () => {
-        navigate("/")
+        navigate("/");
     };
 
     return (
@@ -164,20 +164,19 @@ const Navbar = () => {
                                         horizontal: 'left',
                                     }}
                                     open={Boolean(anchorElNav)}
-                                  
-                                    onClick={handleCloseUserMenu}
+                                    onClose={handleCloseUserMenu}
                                     sx={{
                                         display: { xs: 'block', md: 'none' },
                                     }}
                                 >
                                     <MenuItem onClick={() => {
-                                      navigate("/Customerlogin")
-                                     }}>
+                                        navigate("/Customerlogin")
+                                    }}>
                                         <Typography textAlign="center">Sign in as customer</Typography>
                                     </MenuItem>
                                     <MenuItem onClick={() => {
                                         navigate("/Sellerlogin")
-                                        handleCloseNavMenu()
+                                        handleCloseNavMenu();
                                     }}>
                                         <Typography textAlign="center">Sign in as seller</Typography>
                                     </MenuItem>
@@ -218,14 +217,14 @@ const Navbar = () => {
                         </Typography>
                     </HomeContainer>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <Search />
                         <ProductsMenu dropName="Categories" />
                         <ProductsMenu dropName="Products" />
                     </Box>
 
                     {currentRole === null &&
-                        <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' }, }}>
+                        <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
                             <Button
                                 onClick={handleOpenSigninMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -332,8 +331,7 @@ const Navbar = () => {
                 </Toolbar>
             </Container>
 
-            {
-                isCartOpen &&
+            {isCartOpen && (
                 <Drawer
                     anchor="right"
                     open={isCartOpen}
@@ -349,8 +347,8 @@ const Navbar = () => {
                 >
                     <Cart setIsCartOpen={setIsCartOpen} />
                 </Drawer>
-            }
-        </AppBar >
+            )}
+        </AppBar>
     );
 }
 export default Navbar;

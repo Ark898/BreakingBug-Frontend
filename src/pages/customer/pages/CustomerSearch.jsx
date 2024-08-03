@@ -6,16 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSearchedProducts } from '../../../redux/userHandle';
 
 const CustomerSearch = ({ mode }) => {
-
     const dispatch = useDispatch();
-
-    const [searchTerm, setSearchTerm] = useState("")
+    const [searchTerm, setSearchTerm] = useState("");
 
     const { filteredProducts } = useSelector(state => state.user);
 
-    const handleSearch = () => {
-        preventDefault()
-
+    const handleSearch = (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
         dispatch(getSearchedProducts("searchProduct", searchTerm));
     };
 
@@ -23,7 +20,6 @@ const CustomerSearch = ({ mode }) => {
         <div>
             {
                 mode === "Mobile" ?
-
                     <>
                         <SearchContainer onSubmit={handleSearch}>
                             <TextField
@@ -51,7 +47,6 @@ const CustomerSearch = ({ mode }) => {
                         }
                     </>
             }
-
         </div>
     );
 };

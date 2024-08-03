@@ -13,6 +13,7 @@ import { underControl } from '../../../redux/userSlice';
 import AlertDialogSlide from '../../../components/AlertDialogSlide';
 
 const ViewProductSeller = () => {
+  const buttonText = "Toggle Details"; // Define buttonText if needed
   const dispatch = useDispatch();
   const params = useParams();
   const productID = params.id;
@@ -296,10 +297,10 @@ const ViewProductSeller = () => {
                       <ReviewCard key={index}>
                         <ReviewCardDivision>
                           <Avatar sx={{ width: "60px", height: "60px", marginRight: "1rem", backgroundColor: generateRandomColor(review._id) }}>
-                            {String(reviewreviewername).charAt(0)}
+                            {String(review.reviewerName).charAt(0)}
                           </Avatar>
                           <ReviewDetails>
-                            <Typography variant="h6">{reviewreviewername}</Typography>
+                            <Typography variant="h6">{review.reviewerName}</Typography>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
 
                               <Typography variant="body2">

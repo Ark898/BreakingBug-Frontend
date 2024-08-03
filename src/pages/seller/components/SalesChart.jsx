@@ -15,9 +15,11 @@ import { ChartDatabyYear } from '../../../utils/chartData';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const SalesChart = ({  }) => {
-
+const SalesChart = () => {
     const navigate = useNavigate();
+
+    // Define the chart type (you can change this based on your requirements)
+    const type = 'line'; // Example: 'line', 'bar', 'pie', etc.
 
     return (
         <Card sx={{ backgroundImage: "linear-gradient(320deg, rgb(58 163 171 / 32%) 0%, rgb(8 23 198 / 32%) 100%)" }}>

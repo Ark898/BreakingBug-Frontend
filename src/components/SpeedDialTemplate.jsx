@@ -1,5 +1,5 @@
-import React from 'react'
-import { SpeedDial, styled } from '@mui/material';
+import React from 'react';
+import { SpeedDial, SpeedDialAction, styled } from '@mui/material';  // Import SpeedDialAction
 import TuneIcon from '@mui/icons-material/Tune';
 
 const SpeedDialTemplate = ({ actions }) => {
@@ -19,10 +19,10 @@ const SpeedDialTemplate = ({ actions }) => {
                 />
             ))}
         </CustomSpeedDial>
-    )
+    );
 }
 
-export default SpeedDialTemplate
+export default SpeedDialTemplate;
 
 const CustomSpeedDial = styled(SpeedDial)`
   .MuiSpeedDial-fab {
